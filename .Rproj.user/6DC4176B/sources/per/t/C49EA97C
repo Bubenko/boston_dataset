@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1579482282199.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1166039327",
+    "id" : "C49EA97C",
+    "lastKnownWriteTime" : 1580087265,
+    "last_content_update" : 1580087265384,
+    "path" : "~/Desktop/Lindenwood/6 Semester/Machine Learning/*01_Lab/Project1_Bubenko_Volodymyr.Rmd",
+    "project_path" : "Project1_Bubenko_Volodymyr.Rmd",
+    "properties" : {
+        "cursorPosition" : "96,0",
+        "docOutlineVisible" : "0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "89",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

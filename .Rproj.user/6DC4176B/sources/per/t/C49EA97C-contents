@@ -1,0 +1,104 @@
+---
+title: "Project1_Bubenko_Volodymyr.rmd"
+author: "Volodymyr Bubenko"
+date: "1/19/2020"
+output: html_document
+---
+
+#1.0.Read the dataset in Boston.csv. Preview the document into R. Call the loaded data Boston. Make sure that you have the directory set to the correct location for the data.
+```{r}
+Boston <- read.csv("Boston.csv")
+head(Boston)
+```
+
+#2.0.How many rows are in the data frame? How many columns? What do the rows and columns represent?
+#Total Rows - 506, Total columns - 14
+
+#3.0.Selecting the 1st, 100th, and 500th rows with columns tax and medv
+```{r}
+Boston[c(1, 100, 500),c("tax", "medv")]
+```
+
+4.0.Look at the data using cor function. Are any of the predictors associated with per capita crime rate? If so, explain the relationship based on correlation coefficents.
+
+
+# -1 = Inverse relationship
+# 0 = Not related
+# 1 = Strong relationship
+```{r}
+cor(Boston)
+```
+
+#5.0.Make some pairwise scatterplots of the predictors, crim, rad, tax, indus, and lstat in this data set. Describe your findings.
+
+#We can see that some data is related and some is not 
+```{r}
+pairs(Boston[,c("crim", "rad", "tax", "indus", "lstat")])
+```
+
+#6.0.Do any of the suburbs of Boston appear to have particularly high crime rates by looking at the histogram of crim? What is the range of crim by using range() function in R?
+
+
+#Histogram of crim. Some regions has really high crime rates.
+```{r}
+hist(Boston[,c("crim")],
+     main="Crime Rates",
+     xlab="Crime rates in different suburbs",
+     col="red"
+     )
+```
+
+#6.1 Range of crim
+```{r}
+range(Boston[,c("crim")])
+```
+
+#7.How many of the suburbs in this dataset bound the Charles River?
+```{r}
+library(dplyr) #Addint dplyr library for filtering data.
+
+Boston %>%
+  select(chas) %>%
+  filter(chas == 1) %>% # (1 if tract bounds river; 0 otherwise)
+  count(chas) #35 Suburbs are bound to the Charles River
+```
+
+#8.0.What is the median pupil-teach ratio among the towns in this dataset?
+```{r}
+median(Boston$ptratio) #The median is 19.05 among the towns
+```
+#8.1.What’s the mean?
+```{r}
+mean(Boston$ptratio) #The mean is 18.45553 among the towns
+```
+
+#9.0.How many of the suburbs average more than seven rooms per dwelling? 
+```{r}
+Boston %>%
+  select(rm) %>%
+  filter(rm > 7) %>% 
+  count(rm) #62 suburbs has more than seven rooms per dwelling.
+```
+
+#9.1.More than eight rooms per dwelling?
+```{r}
+Boston %>%
+  select(rm) %>%
+  filter(rm > 8) %>% 
+  count(rm) #13 suburbs has more than seven rooms per dwelling.
+```
+
+
+#10.0.Convert chas to a factor. Boxplot the medv against chas. Are houses around the Charles River more expensive?
+
+```{r}
+y <- as.factor(Boston$chas)
+#Houses that are closer to the Charles River are more expensive
+
+boxplot(Boston$medv~y, data=ToothGrowth, notch=FALSE,
+  main="Price for Houses around the Charles River", xlab="0 - Not Charles River | 1 - Charles River", ylab="Median value of owner-occupied homes in $1000's")
+
+```
+
+
+
