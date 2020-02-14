@@ -5,7 +5,7 @@ GA is a public company traded in Stock exchange. The CEO of GA wants to invest i
 __Boston.csv file__
 ![Boston Dataset](https://i.imgur.com/kNX5S5v.png)
 
-__I am are asked to perform the following tasks by writing a script in R.__
+__I am asked to perform the following tasks by writing a script in R.__
 
 1. Read the dataset in Boston.csv. Preview the document into R. Call the loaded data Boston. Make sure that you have the directory set to the correct location for the data.
   ```{r}
